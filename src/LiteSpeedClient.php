@@ -25,9 +25,6 @@ class LiteSpeedClient
 	//API version
 	private $version = '2.0';
 
-	//Product / Service opt for
-	private $productType = [];
-
 	private $params = [];
 
 	/**

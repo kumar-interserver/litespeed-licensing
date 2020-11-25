@@ -1,0 +1,37 @@
+{
+	"name": "ganesh/litespeed-licensing",
+	"type": "library",
+	"description": "LiteSpeed Licensing PHP API Class",
+	"keywords": [
+		"litespeed",
+		"litespeed-license",
+		"litespeed api",
+		"litespeed php api",
+		"litespeed api 2.0",
+		"litespeed php api 2.0"
+	],
+	"license": "LGPL-2.1-only",
+	"authors": [
+		{
+			"name": "Ganesh R",
+			"homepage": "https:\/\/my.interserver.net\/"
+		}
+	],
+	"config": {
+		"minimum-stability": "dev"
+	},
+	"require": {
+		"php": ">=5.3.0",
+		"ext-curl": "*",
+		"ext-mbstring": "*"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "*",
+		"phpunit/phpunit-mock-objects": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Ganesh\\LiteSpeed\\": "src/"
+		}
+	}
+}

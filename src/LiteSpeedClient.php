@@ -238,7 +238,7 @@ class LiteSpeedClient
 	private function validatePeriod(mixed $period)
 	{
 		$periodList = ['monthly', 'yearly'];
-		$periodListNum = [1 => 'monthly', 12 => 'yearly']
+		$periodListNum = [1 => 'monthly', 12 => 'yearly'];
 		if (in_array($period, $periodList)) {
 			return $period;
 		} elseif (in_array($period, $periodListNum)) {

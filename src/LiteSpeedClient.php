@@ -56,7 +56,7 @@ class LiteSpeedClient
 	/**
 	 * Place a New Order
 	 * 
-	 * @param string $product	Product type 
+	 * @param string $product	Product type Default free starter license
 	 * @param string $period	Billing frequency 'monthly' or 'yearly'
 	 * @param string $paymentType allowed values 'credit' or 'creditcard'
 	 * @param string $cvv		Required when $paymentType is credit
@@ -64,7 +64,7 @@ class LiteSpeedClient
 	 * 
 	 * @return array $response
 	 */
-	public function order(string $product, string $period, string $paymentType = 'credit', string $cvv = false, string $ip = false)
+	public function order($product, $period = 'monthly', $paymentType = 'credit', $cvv = false, $ip = false)
 	{
 		$this->params['eService_action'] = 'Order';
 		$this->params['order_product'] = $this->validateProduct($product);
@@ -88,7 +88,7 @@ class LiteSpeedClient
 	 * 
 	 * @return array $response
 	 */
-	public function cancel(string $licenseSerial, string $cancelNow = 'Y', string $cancelReason = '')
+	public function cancel($licenseSerial, $cancelNow = 'Y', $cancelReason = false)
 	{
 		$this->params['eService_action'] = 'Cancel';
 		$this->params['license_serial'] = $licenseSerial;
@@ -106,7 +106,7 @@ class LiteSpeedClient
 	 * 
 	 * @return array $response
 	 */
-	public function release(string $licenseSerial, string $serverIP, string $newIP = false)
+	public function release($licenseSerial, $serverIP, $newIP = null)
 	{
 		$this->params['eService_action'] = 'ReleaseLicense';
 		$this->param['license_serial '] = $licenseSerial;
@@ -124,7 +124,7 @@ class LiteSpeedClient
 	 * 
 	 * @return array $response
 	 */
-	public function licenseAction(string $licenseSerial, string $action, string $reason = false)
+	public function licenseAction($licenseSerial, $action, $reason = false)
 	{
 		if (in_array($action, ['suspend', 'unsuspend'])) {
 			$this->params['eService_action'] = $action;
@@ -147,7 +147,7 @@ class LiteSpeedClient
 	 * 
 	 * @return array $response	
 	 */
-	public function changeProductType(string $licenseSerial, string $setProduct, string $paymentType='credit', string $cvv = false)
+	public function changeProductType($licenseSerial, $setProduct, $paymentType='credit', $cvv = false)
 	{
 		$this->params['eService_action'] = 'Upgrade';
 		$this->params['license_serial'] = $licenseSerial;

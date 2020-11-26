@@ -38,7 +38,7 @@ class LiteSpeedClient
 	{
 		$this->username = $username;
 		$this->password = $password;
-		$this->endpoint = $this->setUrl($isLive);
+		$this->endPoint = $this->setUrl($isLive);
 		$this->setParams();
 	}
 

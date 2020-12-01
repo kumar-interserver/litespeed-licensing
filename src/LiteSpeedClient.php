@@ -68,7 +68,7 @@ class LiteSpeedClient
 	{
 		$this->params['eService_action'] = 'Order';
 		$this->params['order_product'] = $this->validateProduct($product);
-		$this->params['order_period'] = $this->validatePeriod($product);
+		$this->params['order_period'] = $this->validatePeriod($period);
 		$this->params['order_payment'] = $paymentType;
 		if ($paymentType == 'creditcard') {
 			$this->params['order_cvv'] = $cvv ? $cvv : false;
@@ -231,11 +231,11 @@ class LiteSpeedClient
 	/**
 	 * Validates product type returns false if not matches
 	 * 
-	 * @param mixed $period
+	 * @param string/integer $period
 	 * 
 	 * @return string $period
 	 */
-	private function validatePeriod(mixed $period)
+	private function validatePeriod($period)
 	{
 		$periodList = ['monthly', 'yearly'];
 		$periodListNum = [1 => 'monthly', 12 => 'yearly'];

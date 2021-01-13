@@ -159,6 +159,51 @@ class LiteSpeedClient
 		return $this->call();
 	}
 
+	/**
+	 * Get All Licenses
+	 * 
+	 * @param string $filter	Filter by status, must be any one of the following ['active', 'suspended', 'pendingcancel', 'active,withmodules','suspended,withmodules']
+	 * 
+	 * @return array $response
+	 */
+	public function getAll($filter = '') {
+		$this->params['eService_action'] = 'Query';
+		$this->params['query_field'] = 'AllLicenses';
+		if ($filter && in_array($filter, ['active', 'suspended', 'pendingcancel', 'active,withmodules','suspended,withmodules'])) {
+			$this->params['query_filter'] = $filter;
+		}
+		return $this->call();
+	}
+
+	/**
+	 * Get License Details
+	 * 
+	 * @param string $filterBy		String must be any one of the following ['IP', 'RIP', 'LIP', 'Serial','ID']	
+	 * @param string $filterData	Filter data is actual search term
+	 * 
+	 * @return array $response
+	 */
+	public function getLicenseDetails($filterBy = '', $filterData = '')
+	{
+		$this->params['eService_action'] = 'Query';
+		$this->params['query_field'] = 'LicenseDetail';
+		if ($filterBy && $filterData && in_array($filterBy, ['IP', 'RIP', 'LIP', 'Serial','ID'])) {
+			$this->params['query_filter'] = "$filterBy:$filterData";
+		}
+		return $this->call();
+	}
+
+	/**
+	 * Get Account Credit Balance
+	 * 
+	 * @return array $response
+	 */
+	public function getBalance()
+	{
+		$this->params['eService_action'] = 'Query';
+		$this->params['query_field'] = 'CreditBalance';
+		return $this->call();
+	}
 
 	/**
 	 * API Calls made

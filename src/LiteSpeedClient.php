@@ -206,6 +206,26 @@ class LiteSpeedClient
 	}
 
 	/**
+	 * Get Product type details array
+	 * 
+	 * @return array $productTypes
+	 */
+	public function getProductTypes()
+	{
+		$productTypes = [
+			'WS_F' => 'Free Starter License (1-Domain, 1-Worker, Memory < 2GB)',
+			'WS_SM' => 'Site Owner License (5-Domain, 1-Worker, Memory < 8GB)',
+			'WS_S' => 'Site Owner Plus License (5-Domain, 1-Worker)',
+			'WS_1M' => 'Web Host Lite License (1-Worker, Memory < 8GB)',
+			'WS_1' => 'Web Host Essential License (1-Worker)',
+			'WS_2' => 'Web Host Professional License (2-Worker)',
+			'WS_4' => 'Web Host Enterprise License (4-Worker)',
+			'WS_X' => 'Web Host Elite (X-Worker configurable)'
+		];
+		return $productTypes;
+	}
+
+	/**
 	 * API Calls made
 	 * 
 	 * @return array $response
